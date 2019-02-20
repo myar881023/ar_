@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AR</title>
+</head>
+<body style="margin:0px; overflow:hidden;">
+  <!-- A-Frame ライブラリの読み込み -->
+  <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+  <!-- AR.js ライブラリの読み込み -->
+  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+ <!--gifファイル読み込み用のライブラリ-->
+ <script src="aframe-gif-shader.js"></script> 
+ <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script> 
+ 
+  <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
+  <a-scene embedded arjs="trackingMethod:best; debugUIEnabled:false;">
+
+     
+                 
+      <a-assets>
+                 <image id="hanabi" src="hanabi.gif" crossOrigin="anonymous"></image>
+       
+                 <image id="hanabi2" src="hanabino.gif" crossOrigin="anonymous"></image>
+               
+                 
+                 
+                </a-assets>
+
+
+      <a-assets>
+    
+        <a-asset-item id="kanban_obj" src="mm.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="kanban_mtl" src="mm.mtl"></a-asset-item>  
+
+        <a-asset-item id="omedetou_obj" src="omedetou.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="omedetou_mtl" src="omedetou.mtl"></a-asset-item>  
+
+    
+        <a-asset-item id="present1_obj" src="presentbox.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="present1_mtl" src="presentbox.mtl"></a-asset-item>  
+
+
+        <a-asset-item id="uppresent_obj" src="uppresent.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="uppresent_mtl" src="uppresent.mtl"></a-asset-item>  
+
+        <a-asset-item id="present2_obj" src="present2.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="present2_mtl" src="present2.mtl"></a-asset-item>  
+
+        <a-asset-item id="present3_obj" src="present3.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="present3_mtl" src="present3.mtl"></a-asset-item>  
+
+        <a-asset-item id="present4_obj" src="present4.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="present4_mtl" src="present4.mtl"></a-asset-item>  
+
+        <a-asset-item id="present5_obj" src="present5.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="present5_mtl" src="present5.mtl"></a-asset-item>  
+
+        <!--hana-->
+        <a-asset-item id="orangeflower_obj" src="orangeflower.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="orangeflower_mtl" src="orangeflower.mtl"></a-asset-item>  
+
+        <a-asset-item id="orangeflower2_obj" src="orangeflower.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="orangeflower2_mtl" src="orangeflower.mtl"></a-asset-item>  
+
+
+        <a-asset-item id="redflower_obj" src="redflower.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="redflower_mtl" src="redflower.mtl"></a-asset-item> 
+        
+        <a-asset-item id="redflower2_obj" src="redflower.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="redflower2_mtl" src="redflower.mtl"></a-asset-item> 
+
+        <a-asset-item id="blueflower_obj" src="blueflower.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="blueflower_mtl" src="blueflower.mtl"></a-asset-item>  
+
+        <a-asset-item id="blueflower2_obj" src="blueflower.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="blueflower2_mtl" src="blueflower.mtl"></a-asset-item>
+
+        <a-asset-item id="grass_obj" src="grass.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="grass_mtl" src="grass.mtl"></a-asset-item>  
+
+        <a-asset-item id="grass2_obj" src="grass.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="grass2_mtl" src="grass.mtl"></a-asset-item>  
+        <!--★-->
+
+        <a-asset-item id="star1_obj" src="star1.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star1_mtl" src="star1.mtl"></a-asset-item>  
+
+        <a-asset-item id="star2_obj" src="star2.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star2_mtl" src="star2.mtl"></a-asset-item>  
+
+        
+        <a-asset-item id="star3_obj" src="star3.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star3_mtl" src="star3.mtl"></a-asset-item>  
+
+        <a-asset-item id="star4_obj" src="star4.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star4_mtl" src="star4.mtl"></a-asset-item>  
+
+        
+        <a-asset-item id="star5_obj" src="star5.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star5_mtl" src="star5.mtl"></a-asset-item>  
+
+        
+        <a-asset-item id="star6_obj" src="star6.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star6_mtl" src="star6.mtl"></a-asset-item>  
+
+        
+        <a-asset-item id="star7_obj" src="star7.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star7_mtl" src="star7.mtl"></a-asset-item>  
+
+            
+        <a-asset-item id="star8_obj" src="star1.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star8_mtl" src="star1.mtl"></a-asset-item>  
+
+            
+        <a-asset-item id="star9_obj" src="star2.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star9_mtl" src="star2.mtl"></a-asset-item>
+        
+            
+        <a-asset-item id="star10_obj" src="star3.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star10_mtl" src="star3.mtl"></a-asset-item>  
+
+            
+        <a-asset-item id="star11_obj" src="star4.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star11_mtl" src="star4.mtl"></a-asset-item>  
+
+            
+        <a-asset-item id="star12_obj" src="star5.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star12_mtl" src="star5.mtl"></a-asset-item> 
+        
+            
+        <a-asset-item id="star13_obj" src="star6.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star13_mtl" src="star6.mtl"></a-asset-item>  
+
+           
+        <a-asset-item id="star14_obj" src="star7.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star14_mtl" src="star7.mtl"></a-asset-item>  
+
+           
+        <a-asset-item id="star15_obj" src="star1.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star15_mtl" src="star1.mtl"></a-asset-item>  
+
+        <a-asset-item id="star16_obj" src="star2.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star16_mtl" src="star2.mtl"></a-asset-item>  
+
+        <a-asset-item id="star17_obj" src="star3.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star17_mtl" src="star3.mtl"></a-asset-item>  
+
+        <a-asset-item id="star18_obj" src="star4.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star18_mtl" src="star4.mtl"></a-asset-item>  
+
+        <a-asset-item id="star19_obj" src="star5.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star19_mtl" src="star5.mtl"></a-asset-item>  
+
+        <a-asset-item id="star20_obj" src="star3.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star20_mtl" src="star3.mtl"></a-asset-item>  
+
+            
+        <a-asset-item id="star21_obj" src="star4.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star21_mtl" src="star4.mtl"></a-asset-item>  
+
+            
+        <a-asset-item id="star22_obj" src="star5.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star22_mtl" src="star5.mtl"></a-asset-item> 
+        
+            
+        <a-asset-item id="star23_obj" src="star6.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star23_mtl" src="star6.mtl"></a-asset-item>  
+
+           
+        <a-asset-item id="star24_obj" src="star7.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star24_mtl" src="star7.mtl"></a-asset-item>  
+
+           
+        <a-asset-item id="star25_obj" src="star1.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star25_mtl" src="star1.mtl"></a-asset-item>  
+
+        <a-asset-item id="star26_obj" src="star2.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star26_mtl" src="star2.mtl"></a-asset-item>  
+
+        <a-asset-item id="star27_obj" src="star3.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star27_mtl" src="star3.mtl"></a-asset-item>  
+
+        <a-asset-item id="star28_obj" src="star4.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star28_mtl" src="star4.mtl"></a-asset-item>  
+
+        <a-asset-item id="star29_obj" src="star5.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star29_mtl" src="star5.mtl"></a-asset-item>  
+
+        <a-asset-item id="star30_obj" src="star3.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="star30_mtl" src="star3.mtl"></a-asset-item>  
+
+
+<!--文字-->
+<a-asset-item id="c_obj" src="c.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="c_mtl" src="c.mtl"></a-asset-item> 
+
+<a-asset-item id="o_obj" src="o.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="o_mtl" src="o.mtl"></a-asset-item> 
+
+<a-asset-item id="n_obj" src="n.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="n_mtl" src="n.mtl"></a-asset-item> 
+
+<a-asset-item id="g_obj" src="g.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="g_mtl" src="g.mtl"></a-asset-item>
+
+<a-asset-item id="r_obj" src="r.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="r_mtl" src="r.mtl"></a-asset-item> 
+
+<a-asset-item id="a_obj" src="a.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="a_mtl" src="a.mtl"></a-asset-item> 
+
+<a-asset-item id="t_obj" src="t.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="t_mtl" src="t.mtl"></a-asset-item> 
+
+<a-asset-item id="u_obj" src="u.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="u_mtl" src="u.mtl"></a-asset-item>
+
+<a-asset-item id="l_obj" src="l.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="l_mtl" src="l.mtl"></a-asset-item> 
+
+<a-asset-item id="a2_obj" src="a2.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="a2_mtl" src="a2.mtl"></a-asset-item> 
+
+<a-asset-item id="t2_obj" src="t2.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="t2_mtl" src="t2.mtl"></a-asset-item> 
+
+<a-asset-item id="i_obj" src="i.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="i_mtl" src="i.mtl"></a-asset-item> 
+
+<a-asset-item id="o2_obj" src="o2.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="o2_mtl" src="o2.mtl"></a-asset-item> 
+
+<a-asset-item id="n2_obj" src="n2.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="n2_mtl" src="n2.mtl"></a-asset-item> 
+
+<a-asset-item id="s_obj" src="s.obj"></a-asset-item>   <!-- objファイル -->
+<a-asset-item id="s_mtl" src="s.mtl"></a-asset-item> 
+
+        <!--文字obj-->
+        
+      <!--  <a-asset-item id="omedetou_obj" src="omedetou.obj"></a-asset-item>   
+        <a-asset-item id="omedetou_mtl" src="omedetou.mtl"></a-asset-item>  objファイル -->
+        
+  
+      
+
+        
+    </a-assets>
+   
+       <!-- gif アニメーション-->
+    <a-marker preset="custom" type="pattern" url="pattern-marker-19.patt" registerevents>
+
+        <a-obj-model src="#kanban_obj"
+        mtl="#kanban_mtl"
+        rotation="-1 0 1"
+        scale="0.005 0.005 0.005"
+        position="-0.8 0 0">
+        </a-obj-model>
+
+      <!--present box-->
+      <a-obj-model src="#present1_obj"
+      mtl="#present1_mtl"
+      rotation="-90 0 0"
+      scale="0.025 0.025 0.025"
+      position="0 10 0">
+      <a-animation attribute="position" begin="4000"  dur="8000" to="0 0 0" ></a-animation>
+      </a-obj-model>
+
+
+
+      <a-obj-model src="#uppresent_obj"
+      mtl="#uppresent_mtl"
+      rotation="-90 0 0"
+      scale="0.025 0.025 0.025"
+      position="0 10 0">
+      <a-animation attribute="position" begin="4000"  dur="8000" to="0 0 0" ></a-animation>
+      <a-animation attribute="position" begin="12000"  dur="2000" from="0 0 0" to="0 0.2 0" ></a-animation>
+     <a-animation attribute="position" begin="15000"  dur="1000"  from="0 0.2 0"to="1.5 0.2 0" ></a-animation>
+      <a-animation attribute="position" begin="16000"  dur="3000" from="1.5 0.2 0" to="2 -1 0" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#present2_obj"
+      mtl="#present2_mtl"
+      rotation="-90 0 0"
+      scale="0.003 0.003 0.003"
+      position="1 10 0">
+      <a-animation attribute="position"  begin="2000"dur="7000" to="1 0 0" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#present3_obj"
+      mtl="#present3_mtl"
+      rotation="-90 0 0"
+      scale="0.01 0.01 0.01"
+      position="0.5 10 -1">
+      <a-animation attribute="position"  begin="3000"dur="7000" to="0.5 0 -1" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#present4_obj"
+      mtl="#present4_mtl"
+      rotation="-90 0 0"
+      scale="0.01 0.01 0.01"
+      position="-0.8 10 -0.5">
+      <a-animation attribute="position"  begin="4000"dur="7000" to="-0.8 0 -0.5" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#present5_obj"
+      mtl="#present5_mtl"
+      rotation="-90 0 0"
+      scale="0.01 0.01 0.01"
+      position="-1 10 -1">
+      <a-animation attribute="position"  begin="5000"dur="7000" to="-1 0 -1" ></a-animation>
+      </a-obj-model>
+
+
+<!--grass-->
+
+<a-obj-model src="#grass_obj"
+mtl="#grass_mtl"
+rotation="-90 0 0"
+scale="0.009 0.009 0.009"
+position="-0.5 -0.3 0">
+</a-obj-model>
+
+<a-obj-model src="#grass2_obj"
+mtl="#grass2_mtl"
+rotation="-90 0 0"
+scale="0.009 0.009 0.009"
+position="-0.9 -0.3 0">
+</a-obj-model>
+
+<!--hana-->
+<a-obj-model src="#redflower_obj"
+mtl="#redflower_mtl"
+rotation="-90 0 0"
+scale="0.006 0.006 0.006"
+position="-0.5 -0.3 0">
+</a-obj-model>
+
+<a-obj-model src="#blueflower2_obj"
+mtl="#blueflower2_mtl"
+rotation="-90 0 0"
+scale="0.006 0.006 0.006"
+position="0.3 -0.3 0">
+</a-obj-model>
+
+<a-obj-model src="#blueflower_obj"
+mtl="#blueflower_mtl"
+rotation="-90 0 0"
+scale="0.006 0.006 0.006"
+position="0 -0.3 -0.5">
+</a-obj-model>
+
+<a-obj-model src="#redflower2_obj"
+mtl="#redflower2_mtl"
+rotation="-90 0 0"
+scale="0.006 0.006 0.006"
+position="-0.5 -0.3 -1">
+</a-obj-model>
+
+
+<a-obj-model src="#orangeflower_obj"
+mtl="#orangeflower_mtl"
+rotation="-90 0 0"
+scale="0.006 0.006 0.006"
+position="-1 -0.3 -1">
+</a-obj-model>
+
+
+<a-obj-model src="#orangeflower2_obj"
+mtl="#orangeflower2_mtl"
+rotation="-90 0 0"
+scale="0.006 0.006 0.006"
+position="0.4 -0.3 -1.3">
+</a-obj-model>
+
+<a-obj-model src="#orangeflower2_obj"
+mtl="#orangeflower2_mtl"
+rotation="-90 0 0"
+scale="0.006 0.006 0.006"
+position="1 -0.3 -0.4">
+</a-obj-model>
+      
+      <!--star-->
+      <a-obj-model src="#star1_obj"
+      mtl="#star1_mtl"
+   
+      scale="0.005 0.005 0.005"
+      position="0 0.2 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+
+      <a-animation attribute="position"  begin="16000"dur="4000" to="-0.5 2 0" >
+        <a-animation attribute="rotation" begin="20000"  to="0 360 0"  repeat="indefinite" easing="linear"></a-animation>
+      </a-animation>
+ 
+      </a-obj-model>
+
+      <a-obj-model src="#star2_obj"
+      mtl="#star2_mtl"
+     
+      scale="0.005 0.005 0.005"
+      position="0 0 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="16100"dur="4000" to="-1 2.1 0" ></a-animation>
+    
+      </a-obj-model>
+
+      <a-obj-model src="#star3_obj"
+      mtl="#star3_mtl"
+      scale="0.005 0.005 0.005"
+     
+      position="0 0.3 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="16200"dur="4000" to="-0.3 2.2 0" ></a-animation>
+     </a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#star4_obj"
+      mtl="#star4_mtl"
+     
+      scale="0.005 0.005 0.005"
+      position="0 0.3 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="16500"dur="4000" to="-0.5 2.3 -0.1" ></a-animation>
+      
+      </a-obj-model>
+
+      <a-obj-model src="#star5_obj"
+      mtl="#star5_mtl"
+     
+      scale="0.005 0.005 0.005"
+      position="0 0.3 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="16700"dur="4000" to="0 1.2 0" ></a-animation>
+      
+      </a-obj-model>
+
+      <a-obj-model src="#star6_obj"
+      mtl="#star6_mtl"
+    
+      scale="0.005 0.005 0.005"
+      position="0 0.2 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="16700"dur="4000" to="0.5 2 0" ></a-animation>
+      
+      </a-obj-model>
+
+      <a-obj-model src="#star7_obj"
+      mtl="#star7_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="16800"dur="4000" to="1 2 0" ></a-animation>
+     
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star8_obj"
+      mtl="#star8_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.3 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="16900"dur="4000" to="0.1 1.6 0" ></a-animation>
+
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star9_obj"
+      mtl="#star9_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.1 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17000"dur="4000" to="1 2 -0.2" ></a-animation>
+    
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star10_obj"
+      mtl="#star10_mtl"
+
+      scale="0.005 0.005 0.005"
+      position="0 0.4 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17100"dur="4000" to="-0.3 1.4 0" ></a-animation>
+  
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star11_obj"
+      mtl="#star11_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.4 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17200"dur="4000" to="-0.4 1.6 0" ></a-animation>
+ 
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star12_obj"
+      mtl="#star12_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.3 0"
+      visible="false"
+      >
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17300"dur="4000" to="-1.1 1.7 0" ></a-animation>
+ 
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star13_obj"
+      mtl="#star13_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.1 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17400"dur="4000" to="-0.6 1.8 0" ></a-animation>
+
+      </a-obj-model>
+
+      <a-obj-model src="#star14_obj"
+      mtl="#star14_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.3 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17500"dur="4000" to="-0.1 1.7 0" ></a-animation>
+   
+      </a-obj-model>
+
+      <a-obj-model src="#star15_obj"
+      mtl="#star15_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.2 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17600"dur="4000" to="0.1 1.6 0" ></a-animation>
+
+      </a-obj-model>
+
+      <a-obj-model src="#star16_obj"
+      mtl="#star16_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.3 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17700"dur="4000" to="0.6 1.5 0" ></a-animation>
+
+      </a-obj-model>
+
+      <a-obj-model src="#star17_obj"
+      mtl="#star17_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17800"dur="4000" to="1.1 1.8 0" ></a-animation>
+      
+      </a-obj-model>
+
+      <a-obj-model src="#star18_obj"
+      mtl="#star18_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.3 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="17900"dur="4000" to="0.6 0.9 -0.1" ></a-animation>
+ 
+      </a-obj-model>
+
+      <a-obj-model src="#star19_obj"
+      mtl="#star19_mtl"
+      rotation="200 0 0"
+      scale="0.005 0.005 0.005"
+      position="0 0.2 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18000"dur="4000" to="0.9 1.7 0" ></a-animation>
+      
+      </a-obj-model>
+
+      <a-obj-model src="#star20_obj"
+      mtl="#star20_mtl"
+
+      scale="0.005 0.005 0.005"
+      position="0 0.2 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18100"dur="4000" to="0.8 1.8 0" ></a-animation>
+      
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star21_obj"
+      mtl="#star21_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.4 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18200"dur="4000" to="-0.6 1.2 0" ></a-animation>
+     
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star22_obj"
+      mtl="#star22_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.6 0"
+      visible="false"
+      >
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18300"dur="4000" to="0.1 1.5 0" ></a-animation>
+   
+      </a-obj-model>
+
+      
+      <a-obj-model src="#star23_obj"
+      mtl="#star23_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.1 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18400"dur="4000" to="0 2 0" ></a-animation>
+     
+      </a-obj-model>
+
+      <a-obj-model src="#star24_obj"
+      mtl="#star24_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.4 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18500"dur="4000" to="-0.2 1.2 0" ></a-animation>
+      
+      </a-obj-model>
+
+      <a-obj-model src="#star25_obj"
+      mtl="#star25_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.2 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18600"dur="4000" to="0 2.3 0" ></a-animation>
+     
+      </a-obj-model>
+
+      <a-obj-model src="#star26_obj"
+      mtl="#star26_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.5 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18700"dur="4000" to="-0.3 1.1 0" ></a-animation>
+    
+      </a-obj-model>
+
+      <a-obj-model src="#star27_obj"
+      mtl="#star27_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18800"dur="4000" to="0 2.2 0" ></a-animation>
+     
+      </a-obj-model>
+
+      <a-obj-model src="#star28_obj"
+      mtl="#star28_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.5 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="18900"dur="4000" to="0.1 1.8 -0.1" ></a-animation>
+     
+      </a-obj-model>
+
+      <a-obj-model src="#star29_obj"
+      mtl="#star29_mtl"
+      scale="0.005 0.005 0.005"
+      position="0 0.1 0"
+      visible="false">
+      <a-animation  attribute="visible" begin="15000" to="true" ></a-animation>
+      <a-animation attribute="position"  begin="19000"dur="4000" to="-0.2 2.4 0" ></a-animation>
+      
+      </a-obj-model>
+    
+
+      <!--文字-->
+      <a-obj-model src="#c_obj"
+      rotation="-120 0 0"
+      mtl="#c_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15000"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+    
+      <a-obj-model src="#o_obj"
+      rotation="-120 0 0"
+      mtl="#o_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15100"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+    
+      <a-obj-model src="#n_obj"
+      rotation="-120 0 0"
+      mtl="#n_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15200"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+    
+      <a-obj-model src="#g_obj"
+      rotation="-120 0 0"
+      mtl="#g_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15300"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+    
+      <a-obj-model src="#r_obj"
+      rotation="-120 0 0"
+      mtl="#r_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15400"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+    
+      <a-obj-model src="#a_obj"
+      rotation="-120 0 0"
+      mtl="#a_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15500"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+    
+      <a-obj-model src="#t_obj"
+      rotation="-120 0 0"
+      mtl="#t_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15600"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#u_obj"
+      rotation="-120 0 0"
+      mtl="#u_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15700"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#l_obj"
+      rotation="-120 0 0"
+      mtl="#l_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15800"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#a2_obj"
+      rotation="-120 0 0"
+      mtl="#a2_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="15900"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#t2_obj"
+      rotation="-120 0 0"
+      mtl="#t2_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="16000"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#i_obj"
+      rotation="-120 0 0"
+      mtl="#i_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="16100"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+    
+      <a-obj-model src="#o2_obj"
+      rotation="-120 0 0"
+      mtl="#o2_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="16200"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#n2_obj"
+      rotation="-120 0 0"
+      mtl="#n2_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="16300"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+
+      <a-obj-model src="#s_obj"
+      rotation="-120 0 0"
+      mtl="#s_mtl"
+      scale="0.015 0.015 0.015"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="16400"dur="4000" to="0 -0.1 0" ></a-animation>
+      <a-animation attribute="position"  begin="21000"dur="4000" from="0 -0.1 0" to="0 0.5 1" ></a-animation>
+      </a-obj-model>
+    
+
+      <a-obj-model src="#omedetou_obj"
+      mtl="#omedetou_mtl"
+      rotation="0 0 0"
+      scale="0.01 0.01 0.01"
+      position="0 5 0">
+      <a-animation attribute="position"  begin="26000"dur="5000" to="0 1.2 0" ></a-animation>
+      
+      </a-obj-model>
+    
+    
+
+
+<!--花
+
+<a-plane  position="2 0 1"  material="shader:gif;src:#hana1;" gif="" transparent="true" visible="false" >
+  <a-animation  attribute="visible" begin="5000" to="true" repeat="indefinite"></a-animation>
+</a-plane>
+
+<a-plane  position="3 0 -2"  material="shader:gif;src:#hana1;" gif="" transparent="true" visible="false" >
+  <a-animation  attribute="visible" begin="6000" to="true" repeat="indefinite"></a-animation>
+</a-plane>
+
+
+      <a-plane  position="-1 0 -3"  material="shader:gif;src:#hana2;" gif="" transparent="true" visible="false"  >
+        <a-animation  attribute="visible" begin="7000" to="true" repeat="indefinite"></a-animation>
+      </a-plane>
+
+      <a-plane  position="-1.5 0 0"  material="shader:gif;src:#hana4;" gif="" transparent="true" visible="false" >
+        <a-animation  attribute="visible" begin="9000" to="true" repeat="indefinite"></a-animation>
+    </a-plane>
+  -->
+
+  
+
+<a-plane  position="0.4 1.3 -1" height="1.5" material="shader:gif;src:#hanabi;" gif="" transparent="true" visible="false">
+  <a-animation  attribute="visible" begin="25000" to="true" repeat="3"></a-animation>
+</a-plane>
+
+
+<a-plane  position="-0.3 1 -1" height="1.5" material="shader:gif;src:#hanabi2;" gif="" transparent="true" visible="false">
+  <a-animation  attribute="visible" begin="26000" to="true" repeat="3"></a-animation>
+</a-plane>
+
+
+
+    
+    </a-marker>
+
+
+    <!--マーカー２-->
+
+
+      <a-entity camera></a-entity>
+
+  </a-scene>
+
+
+</body>
+
+
+</html>
